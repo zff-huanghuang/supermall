@@ -6,9 +6,10 @@
 </template>
 
 <script>
-import { Swiper } from 'vue-awesome-swiper';
+import {Swiper} from 'vue-awesome-swiper';
 import SwiperItem from 'components/common/swiper/SwiperItem';
 import 'swiper/css/swiper.css';
+
 export default {
   name: 'carrousel',
   components: {
@@ -17,22 +18,22 @@ export default {
   },
   data() {
     return {
-      data:[{
-        name:'slide1'
-      },{
-        name:'slide2'
-      },{
-        name:'slide3'
-      },{
-        name:'slide4'
-      },{
-        name:'slide5'
+      data: [{
+        name: 'slide1'
+      }, {
+        name: 'slide2'
+      }, {
+        name: 'slide3'
+      }, {
+        name: 'slide4'
+      }, {
+        name: 'slide5'
       }],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
         },
-        autoplay:true,
+        autoplay: true,
       }
     }
   },
@@ -48,8 +49,8 @@ export default {
 }
 </script>
 <style lang="scss">
-.swiper-container{
-  width:100%;
+.swiper-container {
+  width: 100%;
   height: 300px;
 }
 </style>
