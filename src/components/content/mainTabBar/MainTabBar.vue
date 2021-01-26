@@ -1,6 +1,6 @@
 <template>
   <tab-bar>
-    <TabBarItem v-for="v in tabs" :key="v.text" :path="v.path" activeColor="blue">
+    <TabBarItem v-for="v in tabs" :key="v.text" :path="v.path" activeColor="#ff5777">
       <img alt="Vue logo" :src="v.img" slot="itemIcon">
       <img alt="Vue logo" :src="v.imgActive" slot="itemIconActive">
       <div slot="itemText">{{v.text}}</div>
@@ -20,26 +20,26 @@ export default {
   data(){
     return{
       tabs:[{
-        img:require("@/assets/img/tabBar/index.png"),
-        imgActive:require("@/assets/img/tabBar/index_light.png"),
+        img:require("@/assets/img/tabBar/home.svg"),
+        imgActive:require("@/assets/img/tabBar/home_active.svg"),
         text:"首页",
         path:"/index"
       },
         {
-          img:require("@/assets/img/tabBar/delivery.png"),
-          imgActive:require("@/assets/img/tabBar/delivery_light.png"),
+          img:require("@/assets/img/tabBar/category.svg"),
+          imgActive:require("@/assets/img/tabBar/category_active.svg"),
           text:"分类",
           path:"/cate"
         },
         {
-          img:require("@/assets/img/tabBar/cart.png"),
-          imgActive:require("@/assets/img/tabBar/cart_light.png"),
+          img:require("@/assets/img/tabBar/shopcart.svg"),
+          imgActive:require("@/assets/img/tabBar/shopcart_active.svg"),
           text:"购物车",
           path:"/cart"
         },
         {
-          img:require("@/assets/img/tabBar/me.png"),
-          imgActive:require("@/assets/img/tabBar/me_light.png"),
+          img:require("@/assets/img/tabBar/profile.svg"),
+          imgActive:require("@/assets/img/tabBar/profile_active.svg"),
           text:"我的",
           path:"/me"
         }]
