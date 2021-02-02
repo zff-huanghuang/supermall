@@ -8,6 +8,7 @@ const Index = ()=>import('views/index');
 const Cate = ()=>import('views/cate');
 const Me = ()=>import('views/me');
 const Cart = ()=>import('views/cart');
+const Detail = ()=>import('views/detail');
 
 const routes = [
   {
@@ -40,6 +41,11 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail
   }
 ]
 

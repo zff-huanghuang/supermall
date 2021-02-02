@@ -1,8 +1,6 @@
 <template>
   <swiper ref="mySwiper" :options="swiperOptions" class="swiper-container">
-    <swiper-item v-for="v in data">
-      <img src="~assets/img/home/sell.jpg" alt="" @load="swiperImgLoad">
-    </swiper-item>
+    <slot></slot>
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>
 </template>
@@ -20,24 +18,12 @@ export default {
   },
   data() {
     return {
-      data: [{
-        name: 'slide1'
-      }, {
-        name: 'slide2'
-      }, {
-        name: 'slide3'
-      }, {
-        name: 'slide4'
-      }, {
-        name: 'slide5'
-      }],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
         },
         autoplay: true,
-      },
-      isLoad:false
+      }
     }
   },
   computed: {
@@ -50,12 +36,7 @@ export default {
     // this.swiper.slideTo(3, 1000, false)
   },
   methods:{
-    swiperImgLoad(){
-      if(!this.isLoad){
-        this.$emit('swiperImgLoad');
-        this.isLoad = true;
-      }
-    }
+
   }
 }
 </script>
@@ -63,5 +44,9 @@ export default {
 .swiper-container {
   width: 100%;
   height: 200px;
+  .img{
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

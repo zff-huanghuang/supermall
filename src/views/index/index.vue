@@ -4,8 +4,8 @@
       <div slot="left">
         <img src="~assets/img/common/back.svg">
       </div>
-      <div slot="center">
-        首页
+      <div slot="center" style="color: #fff">
+          首页
       </div>
       <div slot="right">
         <img src="~assets/img/common/arrow-left.svg">
@@ -19,12 +19,19 @@
       v-show="isTabFixed"
     />
     <scroll class="content" ref="scroll" :probe-type="3" @scroll="scroll" @loadmore="loadmore" :pull-up-load="true">
-      <swiper @swiperImgLoad="swiperImgLoad"/>
+
+      <swiper>
+        <swiper-item v-for="v in swiperImgs">
+          <img :src="v.img" alt="图片不显示" class="img">
+        </swiper-item>
+      </swiper>
+
+
       <div class="featureDiv border">
         <img src="~assets/img/home/recommend_bg.jpg">
       </div>
       <div class="featureDiv">
-        <img src="~assets/img/home/recommend_bg.jpg">
+        <img src="~assets/img/home/recommend_bg.jpg" @load="swiperImgLoad">
       </div>
       <tab-control
         :tabs="['流行','新款','精选']"
@@ -42,6 +49,7 @@
 <script>
 import NavBar from "components/common/navbar/NavBar";
 import Swiper from 'components/common/swiper/Swiper';
+import SwiperItem from 'components/common/swiper/SwiperItem';
 import TabControl from 'components/content/tabControl/TabControl';
 import GoodList from "components/content/goods/GoodList";
 import Scroll from "components/common/scroll/Scroll";
@@ -52,6 +60,7 @@ export default {
   components: {
     NavBar,
     Swiper,
+    SwiperItem,
     TabControl,
     GoodList,
     Scroll,
@@ -120,7 +129,14 @@ export default {
       },
       showBackTop: false,
       tabOffsetTop: 0,
-      isTabFixed: false
+      isTabFixed: false,
+      scrollY:0,
+      swiperImgs:[{
+        img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607406207249&di=5dd84b10f67bebb31ba635fc1da60fe0&imgtype=0&src=http%3A%2F%2Fimg.5mcc.com.cn%2F5mcc_com_cn%2Fallimg%2F190131%2F141UH3Q-3.jpg"
+      },{
+        img:"https://img1.hzwf.com/images/day_191213/201912131314458587.png"
+      }],
+      isLoad:false
     }
   },
   mounted() {
@@ -128,7 +144,15 @@ export default {
     this.$bus.$on('itemImageLoad', () => {
       refresh();
     })
-
+  },
+  //页面显示时 滚动到滚动位置
+  activated() {
+    this.$refs.scroll.scrollTo(0,this.scrollY,0);
+    this.$refs.scroll.refresh();
+  },
+  //页面离开时 记录滚动位置
+  deactivated() {
+    this.scrollY = this.$refs.scroll.getScrollY();
   },
   methods: {
     changeTab(index) {
@@ -146,7 +170,6 @@ export default {
 
       // 决定tabControl是否吸顶
       this.isTabFixed = (-y) > this.tabOffsetTop;
-      console.log(this.isTabFixed);
     },
     loadmore() {
       this.getData(this.currentType);
@@ -159,7 +182,12 @@ export default {
     },
     // 组件里面元素的offsetTop
     swiperImgLoad() {
-      this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop;
+      if(!this.isLoad){
+        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop;
+        console.log(this.tabOffsetTop)
+        this.isLoad = true;
+      }
+
     }
   },
 }

@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "data": {"goodsId": "2", "goodsName": "（测试）【小幸运】蛋糕（1磅）"},
+  "address": "",
+  "business": "",
+  "createTime": null,
+  "current": "2021-01-28 10:46:14",
+  "gallerys": [{"id": "8", "goodsId": "2", "img": "https://img1.hzwf.com/images/day_191213/201912131125105899.jpg"}],
+  "goodsCateId1": "101",
+  "goodsDesc": "<p><img src='https://img1.hzwf.com/images/day_191213/201912131314458587.png' style='max-width:100%;'><img src='https://img1.hzwf.com/images/day_191213/201912131315097899.png' style='max-width: 100%;'><img src='https://img1.hzwf.com/images/day_191213/201912131315142134.png' style='max-width: 100%;'><img src='https://img1.hzwf.com/images/day_191213/201912131315205319.png' style='max-width: 100%;'><img src='https://img1.hzwf.com/images/day_191213/201912131316156180.png' style='max-width: 100%;'><img src='https://img1.hzwf.com/images/day_191213/201912131317074887.png' style='max-width: 100%;'><br></p>",
+  "goodsId": "2",
+  "goodsImg": "https://img1.hzwf.com/images/day_191213/201912131314178788.jpg",
+  "goodsName": "（测试）【小幸运】蛋糕（1磅）",
+  "goodsStatus": "1",
+  "shopPrice": "50.00",
+  "tagIngredient": "测试",
+  "tagName": "测试",
+  "tagWeight": "测试",
+  "title": "慕斯蛋糕（13*6 cm，约454g，含5套餐具，1根蜡烛，2-4人食）",
+  "msg": "ok"
+}

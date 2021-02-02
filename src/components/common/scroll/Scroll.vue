@@ -49,19 +49,15 @@ export default {
           this.$emit('loadmore');
         })
       }
-
-
-
-
-
-
     },
     scrollTo(x,y,time=300){
       this.bs.scrollTo(x,y,time);
     },
     refresh(){
-      console.log(1111);
       this.bs.refresh();
+    },
+    getScrollY(){
+      return this.bs?this.bs.y:0;
     }
 
   },
